@@ -16,7 +16,7 @@ const HenchmanForm = () => {
   );
 
   return (
-    <>
+    <div className="mainContent">
       <div>
         <form>
           <table>
@@ -72,7 +72,7 @@ const HenchmanForm = () => {
           </table>
         </form>
       </div>
-      <div>
+      <div className="possibilityDiv">
         <Possilities
           key={_.join(
             buttons.map((button) => button.value),
@@ -91,7 +91,7 @@ const HenchmanForm = () => {
           sumTarget={sum}
         ></Possilities>
       </div>
-    </>
+    </div>
   );
 };
 

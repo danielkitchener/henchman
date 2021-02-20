@@ -16,6 +16,7 @@ const Possilities = (props: PossibilityProps) => {
     sum: props.sumTarget,
   });
 
+  // TODO: Must include and cannot include
   return (
     <>
       <ul>
