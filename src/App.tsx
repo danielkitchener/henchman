@@ -8,8 +8,8 @@ function App() {
   });
   return (
     <div className="App">
-      <title>Henchman for Killer Sudoku</title>
-      <header className="App-header">Henchman for Killer Sudoku</header>
+      <title>Henchman for Killer Sudoku and Kakuro</title>
+      <header className="App-header">Henchman for Killer Sudoku and Kakuro</header>
       <HenchmanForm />
     </div>
   );

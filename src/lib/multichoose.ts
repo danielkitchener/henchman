@@ -27,20 +27,20 @@ const range = require('range')
 
 export function multichoose(k: number, objects: number[], cb: (value: any) => void) {
   console.dir(range);
-  var j=k,j_1=k,q=k
+  let j = k, j_1 = k, q = k
   var r = objects.length - 1
-  var a = range.range(0,k).map(function() { return 0 })
+  var a = range.range(0, k).map(function () { return 0 })
   while (true) {
-    cb(range.range(0,k).map(function(i: any) { return objects[a[i]] }))
+    cb(range.range(0, k).map(function (i: any) { return objects[a[i]] }))
     j = k - 1
-    while (j >= 0 && a[j] == r) --j
+    while (j >= 0 && a[j] === r) --j
     if (j < 0) break
     j_1 = j
     while (j_1 <= k - 1) {
       a[j_1] = a[j_1] + 1
-      var q = j_1
+      q = j_1
       while (q < k - 1) {
-        a[q+1] = a[q]
+        a[q + 1] = a[q]
         ++q
       }
       ++q
