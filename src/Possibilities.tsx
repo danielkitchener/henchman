@@ -9,12 +9,18 @@ interface PossibilityProps {
 }
 
 const Possilities = (props: PossibilityProps) => {
-  const possibilities = killerConfig.getKillerConfigs({
-    requiredDigits: props.requiredDigits,
-    availableDigits: props.possibleDigits,
-    count: props.count,
-    sum: props.sumTarget,
-  });
+  let possibilities: number[][];
+  if (!props.count || !props.sumTarget) {
+    possibilities = [];
+  }
+  else {
+    possibilities = killerConfig.getKillerConfigs({
+      requiredDigits: props.requiredDigits,
+      availableDigits: props.possibleDigits,
+      count: props.count,
+      sum: props.sumTarget,
+    });
+  }
 
   // TODO: Must include and cannot include
   return (
