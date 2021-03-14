@@ -15,6 +15,10 @@ const HenchmanForm = () => {
     }),
   );
 
+  const handleFocus = (event: any) => {
+    event.target.select();
+  };
+
   return (
     <div className="mainContent">
       <div>
@@ -31,6 +35,7 @@ const HenchmanForm = () => {
                   id="sum"
                   value={sum}
                   onChange={(event) => setSum(parseInt(event.target.value))}
+                  onFocus={handleFocus}
                 />
               </td>
             </tr>
@@ -45,6 +50,7 @@ const HenchmanForm = () => {
                   id="numberOfDigits"
                   value={count}
                   onChange={(event) => setCount(parseInt(event.target.value))}
+                  onFocus={handleFocus}
                 />
               </td>
             </tr>
