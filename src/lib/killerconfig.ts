@@ -1,4 +1,4 @@
-import * as _ from "lodash";
+import {includes} from 'lodash';
 import { multichoose } from "./multichoose";
 
 interface KillerConfigParams {
@@ -23,22 +23,22 @@ export const getKillerConfigs = (params: KillerConfigParams): number[][] => {
   const possibilities: number[][] = [];
   multichoose(params.count, params.availableDigits, (possibility) => {
     let skipsRequired = false;
-    if (!isUnique(possibility)) {
+    if (!isUnique(possibility as number[])) {
       return;
     }
     for (const digit of params.requiredDigits || []) {
-      if (!_.includes(possibility, digit)) {
+      if (!includes(possibility as number[], digit)) {
         skipsRequired = true;
         continue;
       }
     }
     if (!skipsRequired) {
       let sum = 0;
-      for (const i of possibility) {
+      for (const i of possibility as number[]) {
         sum += i;
       }
       if (sum === params.sum) {
-        possibilities.push(possibility);
+        possibilities.push(possibility as number[]);
       }
     }
   });

@@ -23,24 +23,24 @@ def multichoose(k, objects):
             j_1 = q
 */
 
-const range = require("range");
+const range = (n: number) => Array.from(Array(n).keys())
 
 export function multichoose(
   k: number,
   objects: number[],
-  cb: (value: any) => void,
+  cb: (value: unknown) => void,
 ) {
   console.dir(range);
   let j = k,
     j_1 = k,
     q = k;
-  var r = objects.length - 1;
-  var a = range.range(0, k).map(function () {
+  const r = objects.length - 1;
+  const a = range(k).map(function () {
     return 0;
   });
   while (true) {
     cb(
-      range.range(0, k).map(function (i: any) {
+      range(k).map(function (i: number) {
         return objects[a[i]];
       }),
     );
