@@ -1,5 +1,5 @@
-import _ from 'lodash';
-import * as killerConfig from './lib/killerconfig';
+import _ from "lodash";
+import * as killerConfig from "./lib/killerconfig";
 
 interface PossibilityProps {
   possibleDigits: number[];
@@ -12,8 +12,7 @@ const Possilities = (props: PossibilityProps) => {
   let possibilities: number[][];
   if (!props.count || !props.sumTarget) {
     possibilities = [];
-  }
-  else {
+  } else {
     possibilities = killerConfig.getKillerConfigs({
       requiredDigits: props.requiredDigits,
       availableDigits: props.possibleDigits,
@@ -27,7 +26,7 @@ const Possilities = (props: PossibilityProps) => {
     <>
       <ul>
         {possibilities.map((possibility) => (
-          <li>{_.join(possibility, ', ')}</li>
+          <li>{_.join(possibility, ", ")}</li>
         ))}
       </ul>
     </>

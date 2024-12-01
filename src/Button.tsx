@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export enum ButtonState {
-  Normal = 'normal',
-  Required = 'required',
-  Exclude = 'exclude',
+  Normal = "normal",
+  Required = "required",
+  Exclude = "exclude",
 }
 
 const Button = (props: Record<string, any>) => {
@@ -28,7 +28,7 @@ const Button = (props: Record<string, any>) => {
           setState(newState);
           props.handler(newState);
         }}
-        className={'button_' + state.valueOf() + ' inputbutton'}
+        className={"button_" + state.valueOf() + " inputbutton"}
         value={props.value}
       />
     </>

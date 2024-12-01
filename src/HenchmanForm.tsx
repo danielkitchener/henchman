@@ -1,7 +1,7 @@
-import _ from 'lodash';
-import React, { useState } from 'react';
-import Button, { ButtonState } from './Button';
-import Possilities from './Possibilities';
+import _ from "lodash";
+import React, { useState } from "react";
+import Button, { ButtonState } from "./Button";
+import Possilities from "./Possibilities";
 
 const HenchmanForm = () => {
   const [sum, setSum] = useState(12);
@@ -82,7 +82,7 @@ const HenchmanForm = () => {
         <Possilities
           key={_.join(
             buttons.map((button) => button.value),
-            '_',
+            "_",
           )}
           possibleDigits={buttons
             .filter((button) => {

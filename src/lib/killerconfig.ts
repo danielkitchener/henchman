@@ -1,15 +1,15 @@
-import * as _ from 'lodash';
-import { multichoose } from './multichoose';
+import {includes} from 'lodash';
+import { multichoose } from "./multichoose";
 
 interface KillerConfigParams {
-  availableDigits: number[], 
-  requiredDigits?: number[], 
-  count: number, 
-  sum: number
+  availableDigits: number[];
+  requiredDigits?: number[];
+  count: number;
+  sum: number;
 }
 
-const isUnique = (array: number[]) : boolean => {
-  const map : Record<number, number> = {};
+const isUnique = (array: number[]): boolean => {
+  const map: Record<number, number> = {};
   for (const num of array) {
     if (map[num] === 1) {
       return false;
@@ -17,31 +17,30 @@ const isUnique = (array: number[]) : boolean => {
     map[num] = 1;
   }
   return true;
-} 
+};
 
-export const getKillerConfigs = (params: KillerConfigParams) : number[][] => {
+export const getKillerConfigs = (params: KillerConfigParams): number[][] => {
   const possibilities: number[][] = [];
   multichoose(params.count, params.availableDigits, (possibility) => {
     let skipsRequired = false;
-    if (!isUnique(possibility)) {
+    if (!isUnique(possibility as number[])) {
       return;
     }
-    for (const digit of (params.requiredDigits || [])) {
-      if (!_.includes(possibility, digit)) {
+    for (const digit of params.requiredDigits || []) {
+      if (!includes(possibility as number[], digit)) {
         skipsRequired = true;
         continue;
       }
     }
     if (!skipsRequired) {
       let sum = 0;
-      for (const i of possibility) {
+      for (const i of possibility as number[]) {
         sum += i;
       }
       if (sum === params.sum) {
-        possibilities.push(possibility);
+        possibilities.push(possibility as number[]);
       }
     }
-    
   });
   return possibilities;
 };
